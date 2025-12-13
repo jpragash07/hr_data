@@ -2,6 +2,7 @@
     config(
         materialized='incremental',
         unique_key='EMPLOYEE_ID',
+        incremental_strategy = 'delete+insert',
 	    tags = ['dim']
     )
 }}
