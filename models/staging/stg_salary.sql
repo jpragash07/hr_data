@@ -17,6 +17,6 @@ select
 	HRA ,
 	ALLOWANCES ,
 	PF ,
-	current_timestamp as load_time 
+	load_time 
 from {{source('hr','src_salary')}}
 where employee_id  is not null

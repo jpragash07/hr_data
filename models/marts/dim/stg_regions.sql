@@ -9,7 +9,7 @@
 select
 	region_id ,
 	region_name ,
-	current_timestamp as load_time 
+	load_time 
 from {{source('hr','src_regions')}}
 
 {% if is_incremental() %}
