@@ -2,7 +2,8 @@
     config(
         materialized='incremental',
         unique_key='EMPLOYEE_ID',
-        incremental_strategy = 'delete+insert',
+        incremental_strategy = 'insert_overwrite',
+        partition_by={'field':'load_time','datatype':'timestamp'},
 	    tags = ['dim']
     )
 }}
@@ -22,6 +23,6 @@ from {{ref('stg_employees')}}
 
 {% if is_incremental() %}
 
-{{ inc() }}
+where load_time>=dateadd(day,-7,current_timestamp)
 
 {% endif %}

@@ -2,7 +2,7 @@
     config(
         materialized='incremental',
         unique_key='department_id',
-	incremental_strategy = 'delete+insert',
+	    incremental_strategy = 'delete+insert',
 	tags = ['dim']
     )
 }}
