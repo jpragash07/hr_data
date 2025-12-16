@@ -17,6 +17,7 @@ COMMISSION_PCT,
 MANAGER_ID,
 DEPARTMENT_ID,
 LOAD_TIME
+
 from {{ref('stg_employees')}}
 
 {% if is_incremental() %}
